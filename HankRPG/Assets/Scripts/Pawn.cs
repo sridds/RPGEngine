@@ -16,19 +16,21 @@ public class Pawn : MonoBehaviour
 
     private void Awake()
     {
+        // setup rigidbody
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
         _rb.freezeRotation = true;
 
+        // clone the controller to ensure no values remain
         _myController = _myController.Clone();
     }
 
     private void FixedUpdate()
     {
         if (_myController == null) return;
+
         // Update velocity based on controller request
         _currentFrameCommand = _myController.GetControllerCommand(Time.fixedDeltaTime);
-
         _rb.velocity = _currentFrameCommand.DesiredVelocity;
     }
 

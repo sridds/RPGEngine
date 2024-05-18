@@ -50,8 +50,7 @@ public class FollowerControllerSO : ControllerSO
         Vector2 currentVel = leader.MyRigidbody.velocity;
 
         // record timestamp
-        if (lastLeaderVelocity != currentVel)
-        {
+        if (lastLeaderVelocity != currentVel && currentVel != Vector2.zero) {
             landmarks.Enqueue(new LeaderLandmark(leader.MyRigidbody.velocity, timer + myDelay));
         }
 

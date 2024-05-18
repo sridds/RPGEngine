@@ -5,9 +5,10 @@ using System.Reflection;
 public abstract class ControllerSO : ScriptableObject
 {
     protected bool IsFrozen;
+    protected Pawn myPawn;
 
-    // Returns a controller command based on the inherting controller
-    public abstract ControllerCommand GetControllerCommand(float deltaTime);
+    public virtual void Update() { }
+    public virtual void FixedUpdate() { }
 
     // Sets the frozen state of the controller. Inheriting types may expand on this functionality
     public virtual void SetFrozenState(bool isFrozen) => IsFrozen = isFrozen;
@@ -15,8 +16,10 @@ public abstract class ControllerSO : ScriptableObject
     // This should be called on deconstruction to ensure variables set during runtime are not kept
     public virtual void ResetToDefault() => IsFrozen = false;
 
+    public void SetOwnerPawn(Pawn myPawn) => this.myPawn = myPawn;
+
     // this method must be overwritten by inheriting types to call the CloneGeneric method, passing in the type of item it is
-    public abstract ControllerSO Clone();
+    public abstract ControllerSO Init(Pawn myPawn);
 
     #region Helpers
     /// <summary>
@@ -49,13 +52,4 @@ public abstract class ControllerSO : ScriptableObject
         return Instance;
     }
     #endregion
-}
-
-public class ControllerCommand
-{
-    public Vector2 DesiredVelocity;
-
-    public ControllerCommand() {
-        DesiredVelocity = Vector2.zero;
-    }
 }

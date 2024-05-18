@@ -6,22 +6,24 @@ public class InputControllerSO : ControllerSO
     public float BaseMovementSpeed;
     public float RunSpeed;
 
-    public override ControllerSO Clone() => CloneGeneric<InputControllerSO>();
+    public override ControllerSO Init(Pawn myPawn) {
+        ControllerSO controller = CloneGeneric<InputControllerSO>();
+        controller.SetOwnerPawn(myPawn);
+        return controller;
+    }
 
-    public override ControllerCommand GetControllerCommand(float deltaTime)
+    public override void Update()
     {
-        if (IsFrozen) return new ControllerCommand();
+        if (IsFrozen) return;
 
-        ControllerCommand myCommand = new ControllerCommand();
-        myCommand.DesiredVelocity.x = Input.GetAxisRaw("Horizontal");
-        myCommand.DesiredVelocity.y = Input.GetAxisRaw("Vertical");
+        Vector2 desiredVelocity = new Vector2();
+        desiredVelocity.x = Input.GetAxisRaw("Horizontal");
+        desiredVelocity.y = Input.GetAxisRaw("Vertical");
 
         // get speed based on whether or not player is running
         float speed = Input.GetKey(KeyCode.X) ? RunSpeed : BaseMovementSpeed;
 
-        // override desired vel
-        myCommand.DesiredVelocity = myCommand.DesiredVelocity.normalized * speed;
-
-        return myCommand;
+        // update vel
+        myPawn.MyRigidbody.velocity = desiredVelocity.normalized * speed;
     }
 }

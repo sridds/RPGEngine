@@ -17,7 +17,7 @@ public class ControllerTester : MonoBehaviour
         {
             FollowerControllerSO follower = p.MyController as FollowerControllerSO;
 
-            follower.SetLeader(last);
+            follower.SetLeader(leader);
 
             last = p;
         }

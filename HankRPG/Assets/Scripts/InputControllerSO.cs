@@ -11,7 +11,7 @@ public class InputControllerSO : ControllerSO
         controller.SetOwnerPawn(myPawn);
         return controller;
     }
-
+    
     public override void Update()
     {
         if (IsFrozen) return;

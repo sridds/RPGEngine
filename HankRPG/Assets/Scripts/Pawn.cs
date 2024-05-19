@@ -2,7 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+//[RequireComponent(typeof(Rigidbody2D))]
 public class Pawn : MonoBehaviour
 {
     [SerializeField] private ControllerSO _myController;
@@ -11,11 +11,19 @@ public class Pawn : MonoBehaviour
     // - Follower Variables -
     public readonly List<FollowerControllerSO> Followers = new List<FollowerControllerSO>();
     public readonly List<Vector2> FollowerPath = new List<Vector2>();
-    private int maxFollowerQueue = 0;
+
+    // - Delegates [Followers] -
+    public delegate void FollowerRemoved(int index);
+    public FollowerRemoved OnFollowerRemoved;
 
     // - Getters -
     public ControllerSO MyController { get { return _myController; } }
-    public Rigidbody2D MyRigidbody { get { return rb; } }
+    public Rigidbody2D MyRigidbody {
+        get {
+            if (rb == null) rb = GetComponent<Rigidbody2D>();
+            return rb;
+        }
+    }
     public int FollowerDistance { get { return _followerDistance; } }
 
     // - Local Variables -
@@ -25,16 +33,11 @@ public class Pawn : MonoBehaviour
     private void Awake()
     {
         // setup rigidbody
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
-        rb.freezeRotation = true;
+        MyRigidbody.gravityScale = 0;
+        MyRigidbody.freezeRotation = true;
 
         // clone the controller to ensure no values remain
         _myController = _myController.Init(this);
-    }
-
-    private void Start()
-    {
         lastPosition = transform.position;
     }
 
@@ -48,6 +51,8 @@ public class Pawn : MonoBehaviour
     {
         if (_myController == null) return;
         _myController.FixedUpdate();
+
+        // This has to operate in FixedUpdate, otherwise it will break.
         ShiftFollowerList();
     }
 
@@ -84,11 +89,13 @@ public class Pawn : MonoBehaviour
 
     public bool DeregisterFollower(FollowerControllerSO follower)
     {
-        if(Followers.FirstOrDefault(x => x.Equals(follower)))
+        for(int i = 0; i < Followers.Count; i++)
         {
-            Followers.Remove(follower);
-            // insert deallocation here.
-            return true;
+            if(follower == Followers[i]) {
+                Followers.RemoveAt(i);
+                OnFollowerRemoved?.Invoke(i);
+                return true;
+            }
         }
 
         return false;

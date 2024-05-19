@@ -461,7 +461,6 @@ GameObject:
   m_Component:
   - component: {fileID: 445804398}
   - component: {fileID: 445804395}
-  - component: {fileID: 445804399}
   - component: {fileID: 445804400}
   m_Layer: 0
   m_Name: Follower (3)
@@ -512,20 +511,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &445804399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445804394}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46aab6a254254dd5ac5c259b2892c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myLeader: {fileID: 1621331049}
-  _queueIndex: 10
 --- !u!114 &445804400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myController: {fileID: 11400000, guid: a24bd74d4a8b4497f994efd0d4a18ec3, type: 2}
-  _followerDistance: 20
+  _followerDistance: 15
 --- !u!1 &490998680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1243,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1443902261}
   - component: {fileID: 1443902258}
-  - component: {fileID: 1443902262}
   - component: {fileID: 1443902263}
   m_Layer: 0
   m_Name: Follower (4)
@@ -1309,20 +1293,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1443902262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443902257}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46aab6a254254dd5ac5c259b2892c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myLeader: {fileID: 445804398}
-  _queueIndex: 10
 --- !u!114 &1443902263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myController: {fileID: 11400000, guid: a24bd74d4a8b4497f994efd0d4a18ec3, type: 2}
-  _followerDistance: 20
+  _followerDistance: 15
 --- !u!1 &1621331045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1317,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1621331049}
   - component: {fileID: 1621331046}
-  - component: {fileID: 1621331050}
   - component: {fileID: 1621331051}
   m_Layer: 0
   m_Name: Follower (2)
@@ -1398,20 +1367,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1621331050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621331045}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46aab6a254254dd5ac5c259b2892c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myLeader: {fileID: 1746865896}
-  _queueIndex: 10
 --- !u!114 &1621331051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myController: {fileID: 11400000, guid: a24bd74d4a8b4497f994efd0d4a18ec3, type: 2}
-  _followerDistance: 20
+  _followerDistance: 15
 --- !u!1 &1683692050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,7 +1682,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1739254810}
   - component: {fileID: 1739254807}
-  - component: {fileID: 1739254811}
   - component: {fileID: 1739254812}
   m_Layer: 0
   m_Name: Follower
@@ -1778,20 +1732,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1739254811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739254805}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46aab6a254254dd5ac5c259b2892c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myLeader: {fileID: 508380180}
-  _queueIndex: 10
 --- !u!114 &1739254812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1805,7 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myController: {fileID: 11400000, guid: a24bd74d4a8b4497f994efd0d4a18ec3, type: 2}
-  _followerDistance: 20
+  _followerDistance: 15
 --- !u!1 &1746865892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1757,6 @@ GameObject:
   - component: {fileID: 1746865896}
   - component: {fileID: 1746865893}
   - component: {fileID: 1746865897}
-  - component: {fileID: 1746865898}
   m_Layer: 0
   m_Name: Follower (1)
   m_TagString: Untagged
@@ -1880,21 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myController: {fileID: 11400000, guid: a24bd74d4a8b4497f994efd0d4a18ec3, type: 2}
-  _followerDistance: 20
---- !u!114 &1746865898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746865892}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46aab6a254254dd5ac5c259b2892c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myLeader: {fileID: 1739254810}
-  _queueIndex: 10
+  _followerDistance: 15
 --- !u!1 &1831423283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leader: {fileID: 508380178}
+  defaultSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   follower:
   - {fileID: 1739254812}
   - {fileID: 1746865897}

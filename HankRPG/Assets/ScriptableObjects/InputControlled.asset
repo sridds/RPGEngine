@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b4ea5292ae4eea963772859475524, type: 3}
   m_Name: InputControlled
   m_EditorClassIdentifier: 
-  BaseMovementSpeed: 5
-  RunSpeed: 8
+  BaseMovementSpeed: 4
+  RunSpeed: 7

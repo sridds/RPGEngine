@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912ee69fbaf374ffb87520a37c05663e, type: 3}
+  m_Name: 0_TestDialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Burger Attack! Burger Attack!
+  - Time for you to face... my French Fry Dagger! And also, wait wait. Um, no don't
+    write those down.
+  - It's no use, burger man... I have one SMALL SHAKE!
+  - "Burger, BLAST!\t"
+  - I think this, um is not enough glass but let me know what you think
+  - We need only four, we need only four... So it's nine. It takes 36 panes Virgil
+  - I only need 480 glass panes. We have 36 I need 1/8 of what I setup for the power
+    generation
+  - Thats what the whole point of, I got rid of it we don't need it anymore
+  - Hello, is this noggin on? Is this thing working? How are you gonna turn that
+    off now??
+  responses:
+  - responseText: Panic
+    dialogueObject: {fileID: 11400000, guid: 2eca2eb026e5e4408b36c74033300b16, type: 2}
+  - responseText: Get FREAKY.
+    dialogueObject: {fileID: 11400000, guid: 810b796393bf0454c81bdf25b2441a62, type: 2}

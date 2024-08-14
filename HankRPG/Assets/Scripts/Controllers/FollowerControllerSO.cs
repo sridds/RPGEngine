@@ -43,6 +43,9 @@ public class FollowerControllerSO : ControllerSO
         myPathIndex -= leader.FollowerDistance;
     }
 
+    /// <summary>
+    /// The following will ensure the proper reset of all data once the follower is removed from the party
+    /// </summary>
     public void AbandonLeader()
     {
         leader.OnFollowerRemoved -= PartyMemberRemoved;

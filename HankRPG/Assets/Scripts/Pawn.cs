@@ -2,7 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Pawn : MonoBehaviour
 {
     [SerializeField] private ControllerSO _myController;
@@ -79,11 +79,30 @@ public class Pawn : MonoBehaviour
     public void RegisterFollower(FollowerControllerSO follower)
     {
         Followers.Add(follower);
+        AllocateFollowerPath();
+    }
 
+    /// <summary>
+    /// The following is a helper function that will add enough spaces in the list to contain all positions
+    /// </summary>
+    private void AllocateFollowerPath()
+    {
         int target = (_followerDistance * Followers.Count) - FollowerPath.Count;
         // Only allocate the necessary amount of spaces for the followers
-        for (int i = 0; i < target; i++) {
+        for (int i = 0; i < target; i++)
+        {
             FollowerPath.Add(transform.position);
+        }
+    }
+
+    /// <summary>
+    /// The following will ensure the deallocation of spaces that will go unused once a party member is removed.
+    /// </summary>
+    private void DeallocateFollowerPath()
+    {
+        int target = ((Followers.Count + 1) * _followerDistance) - _followerDistance;
+        for (int j = FollowerPath.Count - 1; j > target; j--) {
+            FollowerPath.RemoveAt(j);
         }
     }
 
@@ -94,6 +113,8 @@ public class Pawn : MonoBehaviour
             if(follower == Followers[i]) {
                 Followers.RemoveAt(i);
                 OnFollowerRemoved?.Invoke(i);
+                DeallocateFollowerPath();
+
                 return true;
             }
         }

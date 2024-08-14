@@ -8,7 +8,7 @@ public class ControllerTester : MonoBehaviour
     private Pawn leader;
 
     [SerializeField]
-    private Sprite defaultSprite;
+    private DialogueObject testDialogue;
 
     [SerializeField]
     private List<Pawn> follower = new List<Pawn>();
@@ -45,6 +45,10 @@ public class ControllerTester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             (leader.Followers[0]).AbandonLeader();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M)) {
+            FindObjectOfType<DialogueHandler>().QueueDialogue(testDialogue);
         }
     }
 }
